@@ -22,75 +22,88 @@ public class SoundBlaster {
     Clip clip, clip2, clip3;
 
     public void startaLjud1() {
-        try {
-            URL url = this.getClass().getResource("/sound/loop.wav");
+        if (clip == null) {
+            try {
+                URL url = this.getClass().getResource("/sound/loop.wav");
 
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
 
-            clip = AudioSystem.getClip();
-            clip.open(audioIn);
+                clip = AudioSystem.getClip();
+                clip.open(audioIn);
 
-        } catch (UnsupportedAudioFileException | IOException e) {
+            } catch (UnsupportedAudioFileException | IOException e) {
 
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
+            }
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            
         }
-        clip.start();
     }
 
     public void stoppaLjud1() {
-        if(clip == null){
-            
-        }else
-        clip.stop();
+        if (clip == null) {
+
+        } else {
+            clip.stop();
+        }
+        clip = null;
     }
 
     public void startaLjud2() {
-        try {
+        if (clip2 == null) {
+            try {
 
-            URL url2 = this.getClass().getResource("/sound/blommans.wav");
+                URL url2 = this.getClass().getResource("/sound/blommans.wav");
 
-            AudioInputStream audioIn2 = AudioSystem.getAudioInputStream(url2);
+                AudioInputStream audioIn2 = AudioSystem.getAudioInputStream(url2);
 
-            clip2 = AudioSystem.getClip();
-            clip2.open(audioIn2);
+                clip2 = AudioSystem.getClip();
+                clip2.open(audioIn2);
 
-        } catch (UnsupportedAudioFileException | IOException e) {
+            } catch (UnsupportedAudioFileException | IOException e) {
 
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
+            }
+            clip2.start();
         }
-        clip2.start();
     }
 
     public void stoppaLjud2() {
-                if(clip2 == null){
-            
-        }else
-        clip2.stop();
-    }
-    
-        public void startaLjud3() {
-        try {
-            URL url = this.getClass().getResource("/sound/8bit.wav");
+        if (clip2 == null) {
 
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-
-            clip3 = AudioSystem.getClip();
-            clip3.open(audioIn);
-
-        } catch (UnsupportedAudioFileException | IOException e) {
-
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
+        } else {
+            clip2.stop();
         }
-        clip3.start();
+        clip2 = null;
+    }
+
+    public void startaLjud3() {
+        if (clip3 == null) {
+            try {
+                URL url = this.getClass().getResource("/sound/8bit.wav");
+
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+
+                clip3 = AudioSystem.getClip();
+                clip3.open(audioIn);
+
+            } catch (UnsupportedAudioFileException | IOException e) {
+
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
+            }
+            clip3.start();
+        }
     }
 
     public void stoppaLjud3() {
-                if(clip3 == null){
-            
-        }else
-        clip3.stop();
+        if (clip3 == null) {
+
+        } else {
+            clip3.stop();
+        }
+        clip3 = null;
     }
 }
