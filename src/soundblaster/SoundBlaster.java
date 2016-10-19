@@ -23,7 +23,7 @@ public class SoundBlaster {
 
     public void startaLjud1() {
         try {
-            URL url = this.getClass().getResource("loop.wav");
+            URL url = this.getClass().getResource("/sound/loop.wav");
 
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
 
@@ -39,13 +39,16 @@ public class SoundBlaster {
     }
 
     public void stoppaLjud1() {
+        if(clip == null){
+            
+        }else
         clip.stop();
     }
 
     public void startaLjud2() {
         try {
 
-            URL url2 = this.getClass().getResource("blommans.wav");
+            URL url2 = this.getClass().getResource("/sound/blommans.wav");
 
             AudioInputStream audioIn2 = AudioSystem.getAudioInputStream(url2);
 
@@ -61,12 +64,15 @@ public class SoundBlaster {
     }
 
     public void stoppaLjud2() {
+                if(clip2 == null){
+            
+        }else
         clip2.stop();
     }
     
         public void startaLjud3() {
         try {
-            URL url = this.getClass().getResource("8bit.wav");
+            URL url = this.getClass().getResource("/sound/8bit.wav");
 
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
 
@@ -82,6 +88,9 @@ public class SoundBlaster {
     }
 
     public void stoppaLjud3() {
+                if(clip3 == null){
+            
+        }else
         clip3.stop();
     }
 }
