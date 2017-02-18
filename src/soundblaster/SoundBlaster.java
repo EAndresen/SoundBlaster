@@ -36,7 +36,8 @@ public class SoundBlaster {
             } catch (LineUnavailableException e) {
                 e.printStackTrace();
             }
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+            clip = null;
             
         }
     }
